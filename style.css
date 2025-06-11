@@ -18,20 +18,22 @@ body {
 
 /* NAV */
 .nav {
-  position: sticky;
+  position: fixed; /* Fijo en la pantalla */
   top: 0;
-  align-self: flex-start;
-  height: 91vh;
+  left: 0;
+  height: 100vh; /* 100% de la altura del viewport */
   background-color: #1e1e2f;
   color: white;
-  width: 60px;
+  width: 60px; /* Ancho inicial */
   padding: 30px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 55vh;
   box-shadow: 4px 0 10px rgba(0,0,0,0.5);
   overflow: hidden;
   transition: width 0.4s ease;
+  z-index: 1000; /* Para que quede sobre otros elementos */
 }
 
 .nav:hover {
@@ -80,10 +82,17 @@ body {
 }
 
 
+.nav:hover ~ .contenido {
+  margin-left: 240px; /* Se ajusta cuando nav se expande */
+}
+
 /* CONTENIDO */
 .contenido {
   flex: 1;
   padding: 40px;
+  margin-left: 60px; /* Mismo ancho que .nav */
+  padding: 40px;
+  transition: margin-left 0.4s ease;
 }
 
 .contenido h1 {
@@ -268,6 +277,25 @@ body {
 
   .contenido {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    width: 100%;     /* Ocupa todo el ancho en pantallas pequeñas */
+    height: auto;    /* Deja que crezca según el contenido */
+    flex-direction: row;
+    padding: 10px;
+    position: static;
+  }
+
+  .contenido {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .nav:hover {
+    width: 100%;
   }
 }
 
