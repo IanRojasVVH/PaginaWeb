@@ -1,355 +1,368 @@
+/* =============================================
+    RESET DE ESTILOS BÁSICOS
+   ============================================= */
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0; /* Elimina márgenes predeterminados del navegador */
+  padding: 0; /* Elimina relleno predeterminado */
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
+  font-family: 'Poppins', sans-serif; /* Fuente general del sitio */
+  color: #333; /* Color de texto por defecto */
 }
 
+/* =============================================
+    CONTENEDOR PRINCIPAL FLEXIBLE
+   ============================================= */
 .contenedor {
-  display: flex;
-  height: auto; /* permite que crezca con el contenido */
-  min-height: 100vh;
-  flex-wrap: wrap;
+  display: flex; /* Usa modelo flexbox para distribuir los elementos hijos */
+  height: auto; /* La altura crece según el contenido */
+  min-height: 100vh; /* Asegura que ocupe al menos el 100% de la altura de la pantalla */
+  flex-wrap: wrap; /* Permite que los hijos se acomoden en varias líneas si es necesario */
 }
 
-
-/* NAV */
+/* =============================================
+    NAV (BARRA LATERAL IZQUIERDA)
+   ============================================= */
 .nav {
-  position: fixed; /* Fijo en la pantalla */
-  top: 0;
-  left: 0;
-  height: 100vh; /* 100% de la altura del viewport */
-  background-color: #1e1e2f;
-  color: white;
-  width: 60px; /* Ancho inicial */
-  padding: 30px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 53vh;
-  box-shadow: 4px 0 10px rgba(0,0,0,0.5);
-  overflow: hidden;
-  transition: width 0.4s ease;
-  z-index: 1000; /* Para que quede sobre otros elementos */
+  position: fixed; /* Posiciona el elemento de forma fija en la pantalla */
+  top: 0; /* Lo alinea con la parte superior de la ventana */
+  left: 0; /* Lo alinea con el lado izquierdo */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: #1e1e2f; /* Color de fondo */
+  color: white; /* Color del texto */
+  width: 60px; /* Ancho reducido inicialmente */
+  padding: 30px 10px; /* Espaciado interno arriba/abajo y a los lados */
+  display: flex; /* Flexbox para ordenar los hijos */
+  flex-direction: column; /* Los elementos se apilan en columna */
+  justify-content: flex-start; /* Alinea el contenido al principio del eje vertical */
+  gap: 53vh; /* Espacio vertical entre el logo y el menú */
+  box-shadow: 4px 0 10px rgba(0,0,0,0.5); /* Sombra al lado derecho */
+  overflow: hidden; /* Oculta lo que sobresale */
+  transition: width 0.4s ease; /* Suaviza la animación de expansión */
+  z-index: 1000; /* Lo posiciona por encima del resto del contenido */
 }
 
 .nav:hover {
-  width: 240px;
+  width: 240px; /* Aumenta el ancho al pasar el mouse */
 }
 
 .nav h2 {
-  font-size: 1.6rem;
-  margin-bottom: 30px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
+  font-size: 1.6rem; /* Tamaño del título */
+  margin-bottom: 30px; /* Espacio debajo del título */
+  text-align: center; /* Centra el texto */
+  opacity: 0; /* Oculto inicialmente */
+  transition: opacity 0.3s; /* Transición suave al aparecer */
 }
 
 .nav:hover h2 {
-  opacity: 1;
+  opacity: 1; /* Aparece al pasar el mouse */
 }
 
 .nav ul {
-  list-style: none;
+  list-style: none; /* Quita los puntos de la lista */
 }
 
 .nav li {
-  margin: 15px 0;
-  white-space: nowrap;
+  margin: 15px 0; /* Espacio vertical entre ítems */
+  white-space: nowrap; /* Evita saltos de línea */
 }
 
 .nav a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  display: block;
-  padding: 8px;
-  border-radius: 6px;
-  transition: 0.3s;
-  opacity: 0;
+  text-decoration: none; /* Quita el subrayado */
+  color: #fff; /* Color blanco para el texto */
+  font-weight: 500; /* Grosor medio del texto */
+  display: block; /* Ocupa todo el ancho del contenedor */
+  padding: 8px; /* Espaciado interno */
+  border-radius: 6px; /* Bordes redondeados */
+  transition: 0.3s; /* Suaviza el cambio de estilos */
+  opacity: 0; /* Ocultos al inicio */
 }
 
 .nav:hover a {
-  opacity: 1;
+  opacity: 1; /* Aparecen al hacer hover sobre nav */
 }
 
 .nav a:hover {
-  background-color: #333;
-  color: #f800e3;
+  background-color: #333; /* Fondo más claro */
+  color: #f800e3; /* Color rosado al hacer hover */
 }
 
-
+/* Ajusta el contenido cuando la barra nav se expande */
 .nav:hover ~ .contenido {
-  margin-left: 240px; /* Se ajusta cuando nav se expande */
+  margin-left: 240px; /* Desplaza el contenido a la derecha */
 }
 
-/* CONTENIDO */
+/* =============================================
+    CONTENIDO PRINCIPAL
+   ============================================= */
 .contenido {
-  flex: 1;
-  padding: 40px;
-  margin-left: 60px; /* Mismo ancho que .nav */
-  padding: 40px;
-  transition: margin-left 0.4s ease;
+  flex: 1; /* Ocupa el espacio restante disponible */
+  padding: 40px; /* Espaciado interno */
+  margin-left: 60px; /* Desplazamiento por la barra lateral */
+  transition: margin-left 0.4s ease; /* Suaviza el desplazamiento */
 }
 
 .contenido h1 {
-  font-size: 2.4rem;
-  margin-bottom: 30px;
-  color: #222;
+  font-size: 2.4rem; /* Tamaño grande del título */
+  margin-bottom: 30px; /* Espacio debajo del título */
+  color: #222; /* Color más oscuro */
 }
 
-/* SECCIONES */
+/* =============================================
+    SECCIONES
+   ============================================= */
 .seccion {
-  margin-bottom: 60px;
+  margin-bottom: 60px; /* Espacio debajo de cada sección */
 }
 
 .titulo-seccion {
-  font-size: 1.9rem;
-  color: #444;
-  margin-bottom: 25px;
-  border-left: 6px solid #f8b500;
-  padding-left: 12px;
+  font-size: 1.9rem; /* Tamaño del título de sección */
+  color: #444; /* Color gris oscuro */
+  margin-bottom: 25px; /* Espacio debajo del título */
+  border-left: 6px solid #f8b500; /* Línea decorativa a la izquierda */
+  padding-left: 12px; /* Espacio entre línea y texto */
 }
 
-/* GALERÍA */
+/* =============================================
+   GALERÍA DE TARJETAS
+   ============================================= */
 .galeria {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 5vh;
-  justify-content: center;
+  display: flex; /* Flexbox para las tarjetas */
+  flex-wrap: wrap; /* Permite múltiples líneas */
+  gap: 15px; /* Espacio entre tarjetas */
+  margin-top: 5vh; /* Espacio superior */
+  justify-content: center; /* Centra las tarjetas */
 }
 
 /* TARJETAS BASE */
 .tarjeta {
-  flex: 1;
-  padding: 20px;
-  border-radius: 16px;
-  background-color: #ffffff;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  flex: 1; /* Ocupa el espacio disponible */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 16px; /* Bordes redondeados */
+  background-color: #ffffff; /* Fondo blanco */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.3s ease; /* Animación al pasar el mouse */
+  display: flex; /* Flexbox interno */
+  flex-direction: column; /* Elementos en columna */
+  align-items: center; /* Centrado horizontal */
+  gap: 10px; /* Espacio entre elementos internos */
 }
 
 .img-contenedor {
-  position: relative;
-  text-align: center;
+  position: relative; /* Para manejar posicionamiento relativo */
+  text-align: center; /* Centra el contenido */
 }
 
 .texto-imagen {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  color: #555;
+  margin-top: 5px; /* Espacio arriba del texto */
+  font-size: 0.9rem; /* Tamaño pequeño */
+  color: #555; /* Gris medio */
   display: none; /* Oculto por defecto */
 }
 
-
 .tarjeta:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
 }
 
 .tarjeta h3 {
-  font-size: 1.4rem;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 1.4rem; /* Tamaño del subtítulo */
+  color: #333; /* Gris oscuro */
+  margin-bottom: 10px; /* Espacio inferior */
 }
 
+/* GRIDS DE IMÁGENES */
 .imagenes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 100%;
+  display: grid; /* Usa grid layout */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+  gap: 10px; /* Espacio entre imágenes */
+  width: 100%; /* Ocupa todo el ancho */
 }
 
 .imagenes2 {
   display: grid;
   gap: 10px;
-  width: 25vh;
+  width: 25vh; /* Ancho relativo a la altura de la ventana */
 }
 
 .imagenes img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  width: 100%; /* Ocupa todo el contenedor */
+  height: 100%; /* Mantiene proporción */
+  object-fit: cover; /* Cubre sin deformar */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  transition: transform 0.3s ease; /* Animación de agrandado */
 }
 
 .imagenes img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta tamaño al hacer hover */
 }
 
-/* Proporción grande solo para "Gatos" */
+/* TARJETAS CON DIFERENTES TAMAÑOS DENTRO DEL GRID */
 .tarjeta.grande {
-  grid-column: span 2;
-  grid-row: span 2;
-  flex: 5;
+  grid-column: span 2; /* Ocupa dos columnas */
+  grid-row: span 2; /* Ocupa dos filas */
+  flex: 5; /* Toma más espacio en layouts flexibles */
 }
 
 .tarjeta.mediana {
-  grid-column: span 2;
-  grid-row: span 2;
-  flex: 1;
+  grid-column: span 2; /* Ocupa dos columnas */
+  grid-row: span 2; /* Ocupa dos filas */
+  flex: 1; /* Toma espacio estándar */
 }
 
 .tarjeta.pequeña {
-  grid-column: span 2;
-  grid-row: span 1;
-  flex: 2;
+  grid-column: span 2; /* Ocupa dos columnas */
+  grid-row: span 1; /* Ocupa una fila */
+  flex: 2; /* Toma espacio intermedio */
 }
 
-
-/* Colores por temática */
+/* COLORES PERSONALIZADOS PARA DISTINTOS TEMAS O USUARIOS */
 .giarella .tarjeta {
-  background-color: #fce4ec;       
-  color: #880e4f;                 
-  border-top: 6px solid #ec407a;   
+  background-color: #fce4ec; /* Fondo rosado claro */
+  color: #880e4f; /* Texto burdeos oscuro */
+  border-top: 6px solid #ec407a; /* Línea superior decorativa */
 }
 
 .ian .tarjeta {
-  background-color: #ffe5e5;
-  color: #b71c1c;
-  border-top: 6px solid #e53935;
+  background-color: #ffe5e5; /* Fondo rosado claro diferente */
+  color: #b71c1c; /* Texto rojo intenso */
+  border-top: 6px solid #e53935; /* Línea decorativa superior */
 }
 
-
-/* --- Estilos responsivos --- */
+/* =============================================
+    RESPONSIVE (ADAPTACIÓN A DIFERENTES PANTALLAS)
+    ============================================= */
+/* Cuando la pantalla es de 1024px o menos */
 @media screen and (max-width: 1024px) {
   .galeria {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .seccion {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Cambia la galería a columna para apilar tarjetas */
+    align-items: center;    /* Centra las tarjetas horizontalmente */
   }
 
   .tarjeta {
-    width: 90%;
-    height: auto;
-    max-width: 400px;
+    width: 90%;          /* Hace que la tarjeta ocupe casi todo el ancho del contenedor */
+    height: auto;        /* Altura automática para adaptarse al contenido */
+    max-width: 400px;    /* Limita el ancho máximo para que no crezca demasiado */
   }
 
   nav {
-    position: fixed;
-    width: 60px;
-    overflow: hidden;
-    transition: width 0.3s ease;
+    position: fixed;     /* El menú queda fijo en la pantalla */
+    width: 60px;         /* Tamaño inicial pequeño para el nav */
+    overflow: hidden;    /* Oculta contenido que salga fuera del nav */
+    transition: width 0.3s ease; /* Animación suave al cambiar ancho */
   }
 
   nav:hover {
-    width: 200px;
+    width: 200px;        /* Al pasar el cursor, el nav se expande */
   }
 
   .contenido {
-    margin-left: 60px;
-    padding: 20px;
+    margin-left: 60px;   /* El contenido se desplaza para dejar espacio al nav pequeño */
+    padding: 20px;       /* Espacio interno para no pegar el contenido al borde */
   }
 
   nav:hover ~ .contenido {
-    margin-left: 200px;
+    margin-left: 200px;  /* Cuando nav está expandido, el contenido se desplaza más */
   }
 }
 
+/* Cuando la pantalla es de 600px o menos */
 @media screen and (max-width: 600px) {
   .tarjeta {
-    width: 95%;
-    font-size: 0.9rem;
+    width: 95%;           /* Tarjetas casi de ancho total en móviles */
+    font-size: 0.9rem;    /* Texto un poco más pequeño para que entre bien */
   }
 
   .contenido h1 {
-    font-size: 1.4rem;
+    font-size: 1.4rem;    /* Ajusta tamaño del título para pantallas pequeñas */
   }
 
   nav {
-    width: 100%;
-    height: auto;
-    position: static;
+    width: 100%;          /* Nav ocupa todo el ancho en móviles */
+    height: auto;         /* Altura automática */
+    position: static;     /* Nav se comporta como elemento normal (no fijo) */
   }
 
   .contenido {
-    margin: 0;
+    margin: 0;            /* Sin márgenes para aprovechar espacio en móvil */
   }
 }
 
+/* Cuando la pantalla es de 768px o menos */
 @media screen and (max-width: 768px) {
   .nav {
-    width: 100%;     /* Ocupa todo el ancho en pantallas pequeñas */
-    height: auto;    /* Deja que crezca según el contenido */
-    flex-direction: row;
-    padding: 10px;
-    position: static;
+    width: 100%;          /* Nav ocupa todo el ancho */
+    height: auto;         /* Altura automática */
+    flex-direction: row;  /* Nav en fila para mejor uso del espacio */
+    padding: 10px;        /* Espacio interno para comodidad */
+    position: static;     /* Nav no es fijo */
   }
 
   .contenido {
-    margin-left: 0;
-    margin-top: 20px;
+    margin-left: 0;       /* Quita margen izquierdo para ajustar al nav */
+    margin-top: 20px;     /* Espacio superior para separar del nav */
   }
 
   .nav:hover {
-    width: 100%;
+    width: 100%;          /* No cambia el tamaño al pasar el mouse */
   }
 }
 
 
-/* Animaciones */
-
+/* =============================================
+    EFECTOS Y ANIMACIONES
+   ============================================= */
 .tarjeta {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  transition: transform 0.3s ease;
-  width: 300px;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); /* Fondo degradado diagonal, va de un color claro a uno más anaranjado */
+  padding: 20px; /* Espacio interno alrededor del contenido */
+  border-radius: 15px; /* Bordes redondeados para suavizar la tarjeta */
+  text-align: center; /* Centra el texto dentro de la tarjeta */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+  margin: 20px; /* Espacio externo entre tarjetas u otros elementos */
+  transition: transform 0.3s ease; /* Animación suave para transformaciones (como escala) */
+  width: 300px; /* Ancho fijo de la tarjeta */
 }
 
+
 .tarjeta:hover {
-  transform: scale(1.03);
+  transform: scale(1.03); /* Aumenta tamaño ligeramente */
 }
 
 .imagen {
-  width: 100%;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s;
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  border-radius: 12px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: transform 0.3s; /* Suaviza la animación de escala */
 }
 
 .imagen:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta levemente el tamaño */
 }
 
 .texto {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, opacity 0.6s ease;
-  display: flex;
-  align-items: center;
+  max-height: 0; /* Oculto por defecto */
+  opacity: 0; /* Transparente */
+  overflow: hidden; /* Oculta contenido que sobresalga */
+  transition: max-height 0.6s ease, opacity 0.6s ease; /* Animaciones suaves */
+  display: flex; /* Flexbox para alinear contenido */
+  align-items: center; /* Centra verticalmente */
 }
 
 .texto.mostrar {
-  max-height: 500px; /* Suficiente para textos largos */
-  opacity: 1;
-  margin-top: 10px;
+  max-height: 500px; /* Se expande para mostrar contenido */
+  opacity: 1; /* Hace visible el contenido */
+  margin-top: 10px; /* Separación superior */
 }
 
 .texto p {
-  font-size: 1em;
-  color: #333;
-  font-weight: bold;
-  text-align: left;
+  font-size: 1em; /* Tamaño de fuente estándar */
+  color: #333; /* Color de texto gris oscuro para buena legibilidad */
+  font-weight: bold; /* Texto en negrita */
+  text-align: left; /* Alineación del texto a la izquierda */
 }
 
 .tamaño {
-  height: 100%;
+  height: 100%; /* Ocupa toda la altura disponible del contenedor */
 }
+
