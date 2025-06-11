@@ -125,7 +125,7 @@ body {
 }
 
 /* =============================================
-   GALERÍA DE TARJETAS
+    GALERÍA DE TARJETAS
    ============================================= */
 .galeria {
   display: flex; /* Flexbox para las tarjetas */
